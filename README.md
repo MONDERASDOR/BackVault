@@ -25,8 +25,8 @@ BackVault is a high-performance optimization plugin designed for PaperMC servers
 
 ## 📥 Installation
 
-1. Download the latest version from the [Releases page](https://github.com/Sunpowder/BackVault/releases)
-2. Place the `BackVault.jar` in your server's `plugins` folder
+1. Download the repo or use `git clone https://github.com/MONDERASDOR/BackVault`. (requires JDK and Gradle Build to build
+2. After Compiling The Plugin. Place the `.jar` in your server's `plugins` folder. 
 3. Restart your server
 4. Customize settings in `plugins/BackVault/config.yml`
 
