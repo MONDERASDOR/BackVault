@@ -1,29 +1,50 @@
+# BackVault Configuration (1.19-1.21.1)
+# ====================================
+
 optimizations:
-  redstone-optimization: true
-  hopper-optimization: true
-  merge-items: true
-  async-chunk-saving: true
-  disable-mob-ai: true
-  dynamic-view-distance: true
+  # Core Features
+  redstone-optimization: true      # Throttles redundant redstone updates
+  hopper-optimization: true        # Prevents hopper checks in unloaded chunks
+  merge-items: true                # Combines nearby identical items (1.19+)
+  async-chunk-saving: true         # Saves chunks asynchronously
+  disable-mob-ai: true             # Disables AI for distant mobs
+  dynamic-view-distance: true      # Auto-adjusts view distance based on TPS
 
 entity-limits:
-  per-chunk: 25
-  mobs: 15
-  items: 50
+  # Per-chunk entity caps
+  per-chunk: 25                    # Total entities per chunk
+  mobs: 15                         # Max mobs per chunk
+  items: 50                        # Max item entities per chunk
+  tile-entities: 20                # Tile entities per chunk (chests, furnaces etc.)
 
 chunk-settings:
-  unload-delay: 300000
-  max-loaded-chunks: 5000
+  unload-delay: 300000             # Milliseconds before unloading inactive chunks (5 mins)
+  max-loaded-chunks: 5000          # Soft cap for loaded chunks
+  force-unload-empty: true         # Aggressively unload empty chunks
 
 view-distance:
-  base: 6
-  min: 4
-  max: 8
+  # Dynamic view distance settings
+  base: 6                          # Default view distance
+  min: 4                           # Minimum when TPS < 17
+  max: 8                           # Maximum when TPS > 19.5
+  adjustment-interval: 12000       # Ticks between adjustments (600 = 30 sec)
 
 tile-entity-limits:
-  per-chunk: 25
+  per-chunk: 25                    # Max tile entities per chunk
+  auto-remove-excess: true         # Break excess tile entities
 
 advanced:
-  enable-timings: false
-  async-entity-processing: true
-  experimental-pathfinding-optimization: false
+  # Debugging and Performance
+  enable-timings: false            # Enable /timings (not recommended for production)
+  async-entity-processing: true    # Process entities off main thread
+  experimental-pathfinding: false  # May cause mob navigation issues
+  version-overrides:               # Version-specific tweaks
+    1_19:
+      item-merge-delay: 2          # Higher delay for 1.19 stability
+    1_20:
+      disable-display-entities: true # Remove 1.20+ display entities
+    1_21:
+      max-loaded-chunks: 6000      # Allow more chunks on 1.21+
+
+# Performance Profiles (safe/aggressive/minimal)
+performance-profile: safe          # Options: safe, aggressive, minimal
