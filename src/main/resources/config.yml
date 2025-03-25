@@ -1,1 +1,29 @@
-# A journey of 1,000 lines starts with a single char
+optimizations:
+  redstone-optimization: true
+  hopper-optimization: true
+  merge-items: true
+  async-chunk-saving: true
+  disable-mob-ai: true
+  dynamic-view-distance: true
+
+entity-limits:
+  per-chunk: 25
+  mobs: 15
+  items: 50
+
+chunk-settings:
+  unload-delay: 300000
+  max-loaded-chunks: 5000
+
+view-distance:
+  base: 6
+  min: 4
+  max: 8
+
+tile-entity-limits:
+  per-chunk: 25
+
+advanced:
+  enable-timings: false
+  async-entity-processing: true
+  experimental-pathfinding-optimization: false
