@@ -1,20 +1,15 @@
-main: ${PACKAGE}.${NAME}
-name: ${NAME}
-version: "${VERSION}"
-api-version: "1.21.1"
-author: AUTHOR
-description: DESCRIPTION
+name: BackVault
+version: 1.0
+main: org.sunpowder.backvault.BackVault
+api-version: 1.19
+authors: [Sunpowder]
 commands:
-  ex:
-    description: Base command for EXAMPLE
-    usage: "For a list of commands, type /ex help"
-    aliases: example
+  backvault:
+    description: Reload plugin configuration
+    permission: backvault.reload
+    usage: /backvault reload
+
 permissions:
-  example.test:
-    description: DESCRIPTION
-    default: true
-  example.*:
-    description: Grants all other permissions
-    default: false
-    children:
-      example.test: true
+  backvault.reload:
+    description: Allows reloading of BackVault configuration
+    default: op
