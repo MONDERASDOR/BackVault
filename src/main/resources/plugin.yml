@@ -1,6 +1,6 @@
 name: BackVault
 version: 1.0
-main: org.sunpowder.backvault.BackVault
+main: org.sunpowder.backvault.backvault
 api-version: 1.19
 authors: [Sunpowder]
 commands:
